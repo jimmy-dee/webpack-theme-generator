@@ -1,0 +1,37 @@
+$color-map: (
+  black: (
+    primary: #000,
+    secondary: #111,
+    tertiary: #222,
+  ),
+  blue: (
+    primary: #0000ff,
+    secondary: #1111ff,
+    tertiary: #2222ff,
+  ),
+  gray: (
+    primary: #666,
+    secondary: #777,
+    tertiary: #888,
+  ),
+  green: (
+    primary: #00ff00,
+    secondary: #11ff11,
+    tertiary: #22ff22,
+  ),
+  purple: (
+    primary: #990099,
+    secondary: #991199,
+    tertiary: #992299,
+  ),
+  red: (
+    primary: #ff0000,
+    secondary: #ff1111,
+    tertiary: #ff2222,
+  ),
+  yellow: (
+    primary: #ffff00,
+    secondary: #ffff11,
+    tertiary: #ffff22,
+  ),
+);

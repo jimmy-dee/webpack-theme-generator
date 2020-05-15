@@ -1,0 +1,15 @@
+$theme: map-get($color-map, blue);
+
+@each $property, $value in $theme {
+  .u-t-bg-color--#{$property} {
+    background-color: $value;
+  }
+
+  .u-t-border-color--#{$property} {
+    border-color: $value;
+  }
+
+  .u-t-color--#{$property} {
+    color: $value;
+  }
+}
