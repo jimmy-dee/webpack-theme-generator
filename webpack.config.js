@@ -1,9 +1,25 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
+const themeKeys = [
+  'black',
+  'blue',
+  'gray',
+  'green',
+  'purple',
+  'red',
+  'yellow'
+];
+
+const entries = themeKeys.reduce((obj, key) => {
+  obj[`${key}-theme`] = `./styles/all.scss?key=${key}`;
+
+  return obj;
+}, {});
+
 module.exports = {
   entry: {
-    style: './styles/all.scss',
+    ...entries,
   },
   output: {
     filename: '[name].js',
@@ -17,7 +33,18 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'sass-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              prependData: (loaderContext) => {
+                const searchParams = new URLSearchParams(loaderContext.resourceQuery);
+
+                if (searchParams.has('key')) {
+                  return `$key: ${searchParams.get('key')};`;
+                }
+              },
+            },
+          },
         ],
       },
     ],

@@ -1,4 +1,6 @@
-$theme: map-get($color-map, blue);
+$theme: map-get($color-map, $key);
+
+@debug 'this is the key #{$key} ---------------------------------------------------------------';
 
 @each $property, $value in $theme {
   .u-t-bg-color--#{$property} {
